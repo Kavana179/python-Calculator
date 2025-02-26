@@ -34,8 +34,8 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1
         with:
-          sonar.organization: YOUR_ORG_NAME
-          sonar.projectKey: YOUR_PROJECT_KEY
+          sonar.organization: kavana179
+          sonar.projectKey: Kavana179_python-Calculator
           sonar.host.url: https://sonarcloud.io
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
