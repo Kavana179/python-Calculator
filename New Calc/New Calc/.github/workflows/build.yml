@@ -3,7 +3,7 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # Use the appropriate version of Python (e.g., 3.8, 3.9, etc.)
+          python-version: '3.x'
 
       # Step 3: Cache Python dependencies
       - name: Cache Python dependencies
@@ -32,7 +32,7 @@ jobs:
           key: ${{ runner.os }}-pip
           restore-keys: ${{ runner.os }}-pip
 
-      # Step 4: Install dependencies (manually install the packages)
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -49,5 +49,6 @@ jobs:
         with:
           sonar.organization: kavana179
           sonar.projectKey: Kavana179_python-Calculator
+          sonar.host.url: https://sonarcloud.io
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
